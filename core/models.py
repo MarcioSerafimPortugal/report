@@ -19,7 +19,7 @@ class Report(models.Model):
         choices= Department.choices,
         default= Department.department_01
     )
-    date = models.DateField(verbose_name='Week Start:')
+    date = models.DateField(verbose_name='Week Starts on:')
     description = models.TextField(blank=False, null=False, verbose_name= 'Description:')
     
 #   class Meta:
