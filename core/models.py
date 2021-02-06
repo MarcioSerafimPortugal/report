@@ -10,7 +10,6 @@ class Department(models.TextChoices):
         department_05 = '05', 'Department 05: Novas Formulações e Matrizes para a Aplicação de Biopesticidas'
         department_06 = '06', 'Department 06: Gestão'
 
-
 class Report(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Name:')
     depto = models.CharField(
@@ -22,8 +21,5 @@ class Report(models.Model):
     date = models.DateField(verbose_name='Week Starts on:')
     description = models.TextField(blank=False, null=False, verbose_name= 'Description:')
     
-#   class Meta:
-#       db_table = 'Report'
-
     def __str__(self):
         return self.user
