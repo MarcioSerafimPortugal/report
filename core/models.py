@@ -12,7 +12,6 @@ class Department(models.TextChoices):
 
 class Report(models.Model):
     name = models.CharField(max_length=200)
-#   user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Name:')
     depto = models.CharField(
         max_length=100, verbose_name='Department:',
         choices= Department.choices,
