@@ -11,15 +11,15 @@ class Department(models.TextChoices):
         department_06 = '06', 'Department 06: Gestão'
 
 class Report(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Name:')
+    name = models.CharField(max_length=200)
+#   user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Name:')
     depto = models.CharField(
         max_length=100, verbose_name='Department:',
-        #max_length=2,
         choices= Department.choices,
         default= Department.department_01
     )
     date = models.DateField(verbose_name='Week Starts on:')
     description = models.TextField(blank=False, null=False, verbose_name= 'Description:')
-    
+
     def __str__(self):
         return self.user
