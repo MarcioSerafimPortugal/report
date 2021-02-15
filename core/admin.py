@@ -22,7 +22,7 @@ class ReportAdmin(admin.ModelAdmin):
         obj.user = request.user
         obj.save()
 
-    def data_customizada(self, obj):
+    def custom_data(self, obj):
         return obj.date.strftime("%d-%m-%Y")
 
 class Department4Admin(admin.ModelAdmin):
@@ -43,7 +43,7 @@ class Department4Admin(admin.ModelAdmin):
         obj.user = request.user
         obj.save()
 
-    def data_customizada(self, obj):
+    def custom_date(self, obj):
         return obj.date.strftime("%d-%m-%Y")
 
 
