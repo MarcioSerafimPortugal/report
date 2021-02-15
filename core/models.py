@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 #Create your models here.
 class Department(models.TextChoices):
@@ -10,9 +11,8 @@ class Department(models.TextChoices):
         department_06 = 'Department 06: Gestão'
 
 
-
 class Report(models.Model):
-    name = models.CharField(max_length=200)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     depto = models.CharField(
         max_length=100, verbose_name='Department:',
         choices= Department.choices,
@@ -21,11 +21,9 @@ class Report(models.Model):
     date = models.DateField(verbose_name='Week Starts on:')
     description = models.TextField(blank=False, null=False, verbose_name= 'Description:')
 
-    def __str__(self):
-        return self.name
 
 class Department4(models.Model):
-    name = models.CharField(max_length=200, verbose_name= 'Name:')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateField(verbose_name='Week Starts on:')
     research_activities = models.TextField(blank=False, null=False, verbose_name= 'Research Activities:')
     internal_meetings = models.TextField(blank=False, null=False, verbose_name= 'Internal Meetings:')
@@ -34,5 +32,3 @@ class Department4(models.Model):
     grant = models.TextField(blank=False, null=False, verbose_name= 'Grant / Calls Preparation:')
     training= models.TextField(blank=False, null=False, verbose_name= 'Training / Webnars Attendance:')
 
-    def __str__(self):
-        return self.name
