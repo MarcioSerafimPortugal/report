@@ -4,7 +4,7 @@ from core.models import Report, Department4
 
 #Register your models here.
 class ReportAdmin(admin.ModelAdmin):
-    list_display = ('complete_name', 'depto', 'data_customizada', 'description')
+    list_display = ('complete_name', 'depto', 'date', 'description')
     search_fields = ('complete_name', 'depto', 'date', 'description')
     list_filter = ('user', 'depto', 'date',)
     exclude = ('user',)
