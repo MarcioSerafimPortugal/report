@@ -1,9 +1,10 @@
 from django.contrib import admin
 from core.models import Report, Department4
+from import_export.admin import ImportExportModelAdmin
 
 
 #Register your models here.
-class ReportAdmin(admin.ModelAdmin):
+class ReportAdmin(ImportExportModelAdmin):
     list_display = ('complete_name', 'depto', 'date', 'description')
     search_fields = ('complete_name', 'depto', 'date', 'description')
     list_filter = ('user', 'depto', 'date',)
@@ -25,7 +26,7 @@ class ReportAdmin(admin.ModelAdmin):
     def custom_date(self, obj):
         return obj.date.strftime("%d-%m-%Y")
 
-class Department4Admin(admin.ModelAdmin):
+class Department4Admin(ImportExportModelAdmin):
     list_display = ('complete_name', 'date')
     list_filter = ('user', 'date',)
     exclude = ('user',)
